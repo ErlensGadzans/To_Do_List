@@ -19,9 +19,14 @@
 
 const Form = new FormManager();
 const Task = new TaskManager(".todo_list");
-const Storage = new StorageManager();
+const Storage = new StorageManager(".todo_list");
+
+for (let task of Storage.data) {
+  Task.addItem(task);
+}
 
 document.getElementById("todo_form").onsubmit = function (event) {
-  const value = Form.submitHook(event);
+  const value = Form.getValue(event);
   Task.addItem(value);
+  Storage.addItem(value);
 };

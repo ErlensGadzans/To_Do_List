@@ -1,7 +1,7 @@
 class FormManager {
   constructor() {}
 
-  submitHook(event) {
+  getValue(event) {
     event.preventDefault();
     const input = event.target.querySelector("input");
     const value = input.value;
